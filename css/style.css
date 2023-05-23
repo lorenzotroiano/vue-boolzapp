@@ -26,6 +26,10 @@
 
 /* strutta della webapp whatsapp */
 .container_whatsapp{
+
+    display: flex;
+
+
     width: 80%;
     margin: 0 auto;
 
@@ -35,5 +39,50 @@
     transform: translate(-50%, -50%);
 
     height: 90vh;
-    background-color: coral;
+    /* background-color: coral; */
+}
+
+
+.messaggi_selector {
+    width: 35%;
+    height: 100%;
+    /* background-color: yellowgreen; */
+}
+
+.header_square {
+    height: 60px;
+    background-color: #eaeaea;
+    
+}
+
+.notifica{
+    height: 80px;
+    background-color: #8edafc;
+}
+
+.main_selector {
+    height: calc(100% - 140px);
+    background-color: #ffffff;
+}
+
+
+.messaggi_chat {
+    width: 65%;
+    height: 100%;
+    /* background-color: darkgoldenrod; */
+}
+
+.main_chat{
+    height: calc(100% - 110px);
+    background-image: url(../img/pngtree-marble-texture-light-gray-background-image_593357.jpg);
+    background-position: center;
+    object-fit: cover;
+    filter: sepia(15%);
+    /* border: 15px solid #eaeaea ; */
+    /* filter: brightness(49%); */
+}
+
+.footer_chat {
+    height: 50px;
+    background-color: #f3eeea ;
 }
