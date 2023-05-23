@@ -52,7 +52,7 @@
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
-                <div v-for="(contatto, index) in contacts" class="user_name">
+                <div @click="scegliChat(index)" v-for="(contatto, index) in contacts" :class="activeUser === index ? 'active' : ''" class="user_name">
                     
                     <div>
                         <img :src="contatto.avatar" alt="img_2">
@@ -92,13 +92,9 @@
             <!-- parte centrale, dunque il corpo dei messaggi, qui staranno le chat e i vari messaggi -->
             <section class="main_chat">
                 
-              <div class="messaggi_inviati">
-                <p>Ciao</p>
-              </div>
-
-              <div class="messaggi_ricevuti">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam explicabo optio quae soluta id enim omnis, sit ea error? Ea necessitatibus molestiae similique, iusto cum odio magni nobis totam quisquam.</p>
-              </div>      
+              <div v-for="(contattoAttivo, index) in contacts[activeUser].messages" :class="contattoAttivo.status === 'sent' ? 'messaggi_inviati' : 'messaggi_ricevuti'">
+                <p>{{contattoAttivo.message}}</p>
+              </div>     
             </section>
 
             <!-- parte inferiore della parte messaggi, qui ci sarà l'input -->

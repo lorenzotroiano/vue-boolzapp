@@ -129,6 +129,10 @@ a {
     background-color: #e9ebeb;
 }
 
+.active{
+    background-color: #e9ebeb;
+}
+
 .cerca_inizia > input {
     border: 2px solid rgb(255, 255, 255);
     width: 90%;
