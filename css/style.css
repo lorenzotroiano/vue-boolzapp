@@ -154,12 +154,34 @@ a {
     filter: sepia(15%);
 
 
+    overflow: scroll;
     padding: 20px;
     /* border: 15px solid #eaeaea ; */
     /* filter: brightness(49%); */
 }
 
+.messaggi_inviati {
+    background-color: greenyellow;
+    border-radius: 10px;
 
+    width: 250px;
+    font-size: 14px;
+
+
+    position: relative;
+    top: 0;
+    left: 65%;
+    padding: 10px;
+}
+
+.messaggi_ricevuti {
+    background-color: royalblue;
+    border-radius: 10px;
+
+    font-size: 14px;
+    width: 250px;
+    padding: 10px;
+}
 
 
 
