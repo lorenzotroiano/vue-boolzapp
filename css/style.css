@@ -52,25 +52,96 @@
 .header_square {
     height: 60px;
     background-color: #eaeaea;
-    
+    padding: 10px;
+
+    display: flex;
+    justify-content: space-between;  
+    align-items: center;
+}
+
+.user_name {
+    display: flex;
+    align-items: center;
+}
+
+.user_online > span {
+    font-size: 12px;
+}
+
+img {
+    border-radius: 50%;
+    width: 40px;
+
+    margin-right: 15px;
 }
 
 /* paerte della notifica lato sinistro */
 .notifica{
     height: 80px;
     background-color: #8edafc;
+    padding: 10px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+a {
+    font-size: 12px;
+}
+
+.fa-bell-slash {
+    color: #8edafc;
+    background-color: white;
+    border-radius: 50%;
+
+    margin-right: 15px;
+
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    padding: 9px;
 }
 
 /* parte centrale del lato sinistro dove appaiono le chat */
 .main_selector {
     height: calc(100% - 140px);
     background-color: #ffffff;
+
+    overflow: scroll;
+    padding: 15px;
+}
+
+.main_selector > .user_name {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    padding: 10px;
+    width: 100%;
+}
+
+.main_selector > .user_name:hover {
+    background-color: #e9ebeb;
+}
+
+.cerca_inizia > input {
+    border: 2px solid rgb(255, 255, 255);
+    width: 90%;
+    height: 30px;
+    margin-left: 10px;
+
+    background: url(../img/kisspng-computer-icons-magnifying-glass-magnifier-clip-art-interface-standard-5b1f5e3fcc7618.9100039915287823998375.jpg) no-repeat scroll 1px 1px;
+    background-size: 27px;
+    padding-left:30px;
 }
 
 /* parte destra del container di whatsapp */
 .messaggi_chat {
     width: 65%;
     height: 100%;
+
+
+   
     /* background-color: darkgoldenrod; */
 }
 
@@ -81,13 +152,39 @@
     background-position: center;
     object-fit: cover;
     filter: sepia(15%);
+
+
+    padding: 20px;
     /* border: 15px solid #eaeaea ; */
     /* filter: brightness(49%); */
 }
+
+
+
+
 
 
 /* parte inferiore del lato destro, dove sta l'input */
 .footer_chat {
     height: 50px;
     background-color: #f3eeea ;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer_chat > input {
+    border: 2px solid rgb(255, 255, 255);
+    width: 85%;
+    height: 30px;
+    margin-left: 10px;
+
+    padding: 10px;
+}
+
+.footer_chat > i {
+    margin: 0 25px;
+    font-size: 20px;
 }
