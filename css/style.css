@@ -48,30 +48,33 @@
     height: 100%;
     /* background-color: yellowgreen; */
 }
-
+/* parte superiore del container whatsapp */
 .header_square {
     height: 60px;
     background-color: #eaeaea;
     
 }
 
+/* paerte della notifica lato sinistro */
 .notifica{
     height: 80px;
     background-color: #8edafc;
 }
 
+/* parte centrale del lato sinistro dove appaiono le chat */
 .main_selector {
     height: calc(100% - 140px);
     background-color: #ffffff;
 }
 
-
+/* parte destra del container di whatsapp */
 .messaggi_chat {
     width: 65%;
     height: 100%;
     /* background-color: darkgoldenrod; */
 }
 
+/* parte centrale del lato destro, dove appaiono i messaggi */
 .main_chat{
     height: calc(100% - 110px);
     background-image: url(../img/pngtree-marble-texture-light-gray-background-image_593357.jpg);
@@ -82,6 +85,8 @@
     /* filter: brightness(49%); */
 }
 
+
+/* parte inferiore del lato destro, dove sta l'input */
 .footer_chat {
     height: 50px;
     background-color: #f3eeea ;
