@@ -9,6 +9,7 @@ const { createApp } = Vue;
 createApp({
     data() {
     return {
+        newMessage: "",
         activeUser: 0,
         contacts: [
             {
@@ -178,8 +179,15 @@ createApp({
     },
     methods: {
       scegliChat(indice){
-        this.activeUser++; 
+        this.activeUser = indice;
        
+      },
+      aggiungiMessage(){
+        if(this.newMessage != ""){
+            this.contacts[length].messages.push({message: this.newMessage, status: 'sent', date: '10/01/2020 15:51:00'});
+        } 
+    
+        this.newMessage = "";
       }
     }
 }).mount("#app")

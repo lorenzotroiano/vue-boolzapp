@@ -74,10 +74,10 @@
                 <div class="user_name">
                     
                     <div>
-                        <img src="img/avatar2.png" alt="img_2">
+                        <img :src="contacts[activeUser].avatar" alt="img_2">
                     </div>
                     <div class="user_online">
-                        <h5>Sofia</h5>
+                        <h5>{{contacts[activeUser].name}}</h5>
                         <span>Data 20/03/2023</span>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
             <!-- parte inferiore della parte messaggi, qui ci sarà l'input -->
             <section class="footer_chat">
                 <i class="fa-regular fa-face-smile"></i>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="aggiungiMessage">
                 <i class="fa-solid fa-microphone"></i>
             </section>
         </section>
