@@ -61,7 +61,12 @@
 
 .user_name {
     display: flex;
+   
     align-items: center;
+}
+
+.user_flex {
+    display: flex;
 }
 
 .user_online > span {

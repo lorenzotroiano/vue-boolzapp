@@ -11,7 +11,7 @@
 </head>
 <body>
     
-<div class="container">
+<div id="app" class="container">
     <div class="header"></div>
 
 
@@ -52,13 +52,13 @@
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
-                <div class="user_name">
+                <div v-for="(contatto, index) in contacts" class="user_name">
                     
                     <div>
-                        <img src="img/avatar2.png" alt="img_2">
+                        <img :src="contatto.avatar" alt="img_2">
                     </div>
                     <div class="user_online">
-                        <h5>Sofia</h5>
+                        <h5>{{contatto.name}}</h5>
                         <span>Data 20/03/2023</span>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
             <section class="main_chat">
                 
               <div class="messaggi_inviati">
-                <p>Lorem ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis, officiis, dolor quasi fugiat dicta vero eos reiciendis ratione alias molestias. Id, autem. Soluta incidunt ipsum assumenda sed! Quas, deleniti? dolor sit amet consectetur adipisicing elit. Odit soluta fuga vero qui natus reiciendis ea non tempore odio! Id, hic quo. Dolores earum eum esse. Consectetur nemo temporibus nihil!</p>
+                <p>Ciao</p>
               </div>
 
               <div class="messaggi_ricevuti">
