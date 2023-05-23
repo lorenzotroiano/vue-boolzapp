@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* generali */
+.container {
+    height: 100vh;
+
+    position: relative;
+}
+
+.header {
+    height: 100px;
+    background-color: #009688;
+}
+
+.main {
+    height: calc(100% - 100px);
+    background-color: #d3dbd7;
+}
+
+
+
+
+/* strutta della webapp whatsapp */
+.container_whatsapp{
+    width: 80%;
+    margin: 0 auto;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 90vh;
+    background-color: coral;
+}
