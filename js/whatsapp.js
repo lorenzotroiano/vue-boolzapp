@@ -184,11 +184,23 @@ createApp({
       },
       aggiungiMessage(){
         if(this.newMessage != ""){
-            this.contacts[length].messages.push({message: this.newMessage, status: 'sent', date: '10/01/2020 15:51:00'});
+            this.contacts[this.activeUser].messages.push({message: this.newMessage, status: 'sent', date: '10/01/2020 15:51:00'});
+
+
+            setTimeout(() => {
+                this.contacts[this.activeUser].messages.push({
+                  message: 'Ok',
+                  status: 'received',
+                  date: '10/01/2020 15:51:01'
+                });
+              }, 1000);
         } 
+
+      
     
         this.newMessage = "";
-      }
+      },
+      
     }
 }).mount("#app")
 
