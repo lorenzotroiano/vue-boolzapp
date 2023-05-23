@@ -161,7 +161,7 @@ a {
 }
 
 .messaggi_inviati {
-    background-color: greenyellow;
+    background-color: #d5f9ba;
     border-radius: 10px;
 
     width: 250px;
@@ -175,7 +175,7 @@ a {
 }
 
 .messaggi_ricevuti {
-    background-color: royalblue;
+    background-color: #ffffff;
     border-radius: 10px;
 
     font-size: 14px;
