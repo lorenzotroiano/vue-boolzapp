@@ -9,7 +9,15 @@ const { createApp } = Vue;
 createApp({
     data() {
     return {
+
+
+        // creiamo proprietà vuota da inserire nell'input di cerca o avvia chat
+        searchText: "",
+
+        // creiamo proprietà vuota da inserire nell'input dove si inviano messaggi nella chat"
         newMessage: "",
+
+        // creo prorpietà con valore 0 che poi cambierà con il cambiare dell'elemento, all'inizio sarà la proprietà attiva di quel momento
         activeUser: 0,
         contacts: [
             {
@@ -177,31 +185,69 @@ createApp({
         
     }
     },
+
+
     methods: {
+
+        // do un nome alla funzione, che ha come argomento indice, che poi verrà sostituito con index inserito nel v-for in html
       scegliChat(indice){
+
+        // qui dico che activeUser viene settato al valore dell'indice (index in html), quindi il valore cambia in base agli elementi presenti nell'array 
         this.activeUser = indice;
        
       },
+
+    //   do un nome alla funzione senza argomento, serve x aggiungere messaggi
       aggiungiMessage(){
+
+        // creo condizione dove dico che questo new messagge se è diverso da vuoto, allora avverrà qualcosa
         if(this.newMessage != ""){
+
+            // se newMess è vuoto l'user invia un messaggio che verrà pushato nell'array di obj contenente il newMessage che avrà un nuovo valore che dipenderà da ciò che scrive l'user
             this.contacts[this.activeUser].messages.push({message: this.newMessage, status: 'sent', date: '10/01/2020 15:51:00'});
 
 
+
+            // creo funzione a tempo, con il setTimeout usando arrow function
             setTimeout(() => {
+
+                // stessa funziona precedente, solo che in questo caso, riceverò un messaggio fisso "ok"  dopo che l'user ha inviato un messaggio
                 this.contacts[this.activeUser].messages.push({
                   message: 'Ok',
                   status: 'received',
                   date: '10/01/2020 15:51:01'
                 });
+                // tempo di attesa per la risposta
               }, 1000);
         } 
 
       
-    
+        // azzerro ciò che sta scritto dentro l'input in cui invio messaggio
         this.newMessage = "";
       },
       
-    }
+    },
+
+    // è una proprietà "dinamica"/ speciale di vue.js che fa un lavoro al posto nostro, in sostanza si occupa di fare calcoli al posto nostro in modo dinamico e automatico in base a ciò che noi gli diciamo di fare
+    computed: {
+
+        // creo proprietà per filtrare array contacts
+        filteredContacts() {
+        // creo una variabile const che conterrà il valore inserito nell'input che ha il v-model searchText utilizzando metodi .toLowerCase che serve per rendere minuscolo il testo e metodo .trim che serve per togliere gli spazi
+          const filterText = this.searchText.toLowerCase().trim();
+
+        //   creo la condizione dicendo che se filtertext non c'è (non viene scritto nulla nell'input) allora ritornerà il valore dell'array obj contacts (l'array totale, principale)
+          if (!filterText) {
+            return this.contacts;
+          }
+        //   altrimenti, se si scrive qualcosa, ritornerà l'array contacts filtrato dove verranno selezionati gli elementi dell'array prendendo la proprietà name resa tutta in minuscolo attraverso il metodo tolowerCase e poi aggiungo il metodo .includes(filtertext)
+        // quindi in questo caso, qualsiasi valore inserirò nell'input di cerca contatto mi apparirà quel valore che ha incluso ciò che io ho scritto dentro l'input
+          return this.contacts.filter(contact =>
+            contact.name.toLowerCase().includes(filterText)
+          );
+        }
+      }
+
 }).mount("#app")
 
 

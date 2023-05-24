@@ -49,10 +49,10 @@
             <section class="main_selector">
                 <div class="cerca_inizia">
                     <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
-                    <input type="text" placeholder="Cerca o inizia una nuova chat" >
+                    <input type="text" v-model="searchText" placeholder="Cerca o inizia una nuova chat" >
                 </div>
 
-                <div @click="scegliChat(index)" v-for="(contatto, index) in contacts" :class="activeUser === index ? 'active' : ''" class="user_name">
+                <div @click="scegliChat(index)" v-for="(contatto, index) in filteredContacts" :key="index" :class="activeUser === index ? 'active' : ''" class="user_name">
                     
                     <div>
                         <img :src="contatto.avatar" alt="img_2">
