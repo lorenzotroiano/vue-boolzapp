@@ -239,7 +239,7 @@ createApp({
         //   creo la condizione dicendo che se filtertext non c'è (non viene scritto nulla nell'input) allora ritornerà il valore dell'array obj contacts (l'array totale, principale)
           if (!filterText) {
             return this.contacts;
-          }
+          } 
         //   altrimenti, se si scrive qualcosa, ritornerà l'array contacts filtrato dove verranno selezionati gli elementi dell'array prendendo la proprietà name resa tutta in minuscolo attraverso il metodo tolowerCase e poi aggiungo il metodo .includes(filtertext)
         // quindi in questo caso, qualsiasi valore inserirò nell'input di cerca contatto mi apparirà quel valore che ha incluso ciò che io ho scritto dentro l'input
           return this.contacts.filter(contact =>
