@@ -10,6 +10,14 @@ createApp({
     data() {
     return {
 
+        // creare array con un tot di frasi per farle inserire dal pc dopo un secondo che invio messaggio
+        frasiRandom: [
+            'Ciao',
+            'Come stai?',
+            'OK, va benissimo così',
+          ],
+
+        //   click risulta null
         click: null,
         // creiamo proprietà vuota da inserire nell'input di cerca o avvia chat
         searchText: "",
@@ -211,9 +219,12 @@ createApp({
             // creo funzione a tempo, con il setTimeout usando arrow function
             setTimeout(() => {
 
+                // creo constante per generare frasi random presenti nell'array FRASIRANDOM
+                const randomIndex = Math.floor(Math.random() * this.frasiRandom.length);
+                const randomPhrase = this.frasiRandom[randomIndex];
                 // stessa funziona precedente, solo che in questo caso, riceverò un messaggio fisso "ok"  dopo che l'user ha inviato un messaggio
                 this.contacts[this.activeUser].messages.push({
-                  message: 'Ok',
+                  message: randomPhrase,
                   status: 'received',
                   date: '10/01/2020 15:51:01'
                 });
@@ -225,21 +236,28 @@ createApp({
         // azzerro ciò che sta scritto dentro l'input in cui invio messaggio
         this.newMessage = "";
       },
+
+    //   funzione che mi serve x creare il dropdown usando come argomento indice ovvero (index)
       dropDown(indice) {
+      // Se l'indice del click è uguale all'indice corrente, allora il click diventa null
         if (this.click === indice) {
           this.click = null;
         } else {
+        // Altrimenti, l'indice del click diventa l'indice corrente
           this.click = indice;
         }
         
         
     },
 
+    // creare funzione x cancellare il messaggio cliccato per far aprire il dropdown
     cancellaMessaggio(indice){
+          // Rimuove il messaggio dall'array di messaggi del contatto attivo
         this.contacts[this.activeUser].messages.splice(indice, 1);
 
+        // inserire click = null per far scomparire il dropdown
         this.click = null;
-    }
+    },
     
       
     },
@@ -263,6 +281,8 @@ createApp({
           );
         }
       },
+
+    //   si occupa di osservare i cambiamenti nella proprietà activeUser e di eseguire un'azione quando viene modificata.
       watch: {
         activeUser() {
           this.click = null; // Chiudi la tendina quando cambia la chat attiva

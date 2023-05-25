@@ -247,3 +247,9 @@ a {
     margin: 0 25px;
     font-size: 20px;
 }
+
+
+
+.disactive {
+    display: none;
+}
