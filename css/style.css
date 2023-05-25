@@ -202,6 +202,25 @@ a {
 
 }
 
+.elimina-mex > span {
+    display: flex;
+    flex-direction: column;
+    /* display: block; */
+}
+
+.elimina-mex{
+    background-color: white;
+    position: absolute;
+
+    z-index: 1;
+
+    border: 1px solid black;
+    width: 200px;
+
+    padding: 10px;
+}
+
+
 
 
 /* parte inferiore del lato destro, dove sta l'input */

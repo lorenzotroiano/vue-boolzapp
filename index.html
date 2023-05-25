@@ -95,6 +95,12 @@
               <div v-for="(contattoAttivo, index) in contacts[activeUser].messages" :class="contattoAttivo.status === 'sent' ? 'messaggi_inviati' : 'messaggi_ricevuti'">
                 <p>{{contattoAttivo.message}}</p>
                 <span class="data">{{contattoAttivo.date}}</span>
+                <i @click.stop="dropDown(index)" class="fa-solid fa-chevron-down"></i>
+
+                <div class="elimina-mex" v-if="click === index">
+                    <span @click.stop="cancellaMessaggio(index)">Cancella messaggio</span>
+                    <span>Messaggio info</span>
+                </div>
               </div>     
             </section>
 

@@ -10,7 +10,7 @@ createApp({
     data() {
     return {
 
-
+        click: null,
         // creiamo proprietà vuota da inserire nell'input di cerca o avvia chat
         searchText: "",
 
@@ -200,8 +200,8 @@ createApp({
     //   do un nome alla funzione senza argomento, serve x aggiungere messaggi
       aggiungiMessage(){
 
-        // creo condizione dove dico che questo new messagge se è diverso da vuoto, allora avverrà qualcosa
-        if(this.newMessage != ""){
+        // creo condizione dove dico che questo new messagge se è diverso da vuoto e se ha spazi vuoti, allora avverrà qualcosa
+        if(this.newMessage != "" && this.newMessage.trim()){
 
             // se newMess è vuoto l'user invia un messaggio che verrà pushato nell'array di obj contenente il newMessage che avrà un nuovo valore che dipenderà da ciò che scrive l'user
             this.contacts[this.activeUser].messages.push({message: this.newMessage, status: 'sent', date: '10/01/2020 15:51:00'});
@@ -225,6 +225,22 @@ createApp({
         // azzerro ciò che sta scritto dentro l'input in cui invio messaggio
         this.newMessage = "";
       },
+      dropDown(indice) {
+        if (this.click === indice) {
+          this.click = null;
+        } else {
+          this.click = indice;
+        }
+        
+        
+    },
+
+    cancellaMessaggio(indice){
+        this.contacts[this.activeUser].messages.splice(indice, 1);
+
+        this.click = null;
+    }
+    
       
     },
 
@@ -245,6 +261,11 @@ createApp({
           return this.contacts.filter(contact =>
             contact.name.toLowerCase().includes(filterText)
           );
+        }
+      },
+      watch: {
+        activeUser() {
+          this.click = null; // Chiudi la tendina quando cambia la chat attiva
         }
       }
 
